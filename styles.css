@@ -1,0 +1,53 @@
+body {
+    font-family: 'Orbitron', sans-serif; /* Fonte futurista */
+    margin: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+input {
+    margin-right: 10px;
+    padding: 5px;
+}
+
+button {
+    font-family: inherit; /* Para garantir que os botões usem a mesma fonte */
+    padding: 5px 10px;
+    background-color: #4CAF50; /* Cor do botão */
+    color: white; /* Cor do texto */
+    border: none; /* Remove a borda */
+    cursor: pointer; /* Cursor em forma de mão */
+    transition: background-color 0.3s; /* Transição suave */
+}
+
+button:hover {
+    background-color: purple; /* Cor do botão ao passar o mouse */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}

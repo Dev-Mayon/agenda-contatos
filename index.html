@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda de Contatos</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Seu CSS aqui -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet"> <!-- Fonte futurista -->
+</head>
+<body>
+    <h1>Agenda de Contatos</h1>
+    <form id="form-contato">
+        <input type="text" id="nome" placeholder="Nome" required>
+        <input type="text" id="telefone" placeholder="Telefone" required>
+        <button type="submit">Cadastrar</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Telefone</th>
+            </tr>
+        </thead>
+        <tbody id="tabela-contatos">
+            <!-- As linhas de contatos serão adicionadas aqui -->
+        </tbody>
+    </table>
+    <button onclick="salvarEmPDF()">Salvar em PDF</button>
+    <button onclick="resetarLista()">Resetar Lista</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        document.getElementById('form-contato').addEventListener('submit', function(e) {
+            e.preventDefault(); // Impede o envio do formulário
+
+            const nome = document.getElementById('nome').value;
+            const telefone = document.getElementById('telefone').value;
+
+            // Cria uma nova linha na tabela
+            const novaLinha = document.createElement('tr');
+            novaLinha.innerHTML = `<td>${nome}</td><td>${telefone}</td>`;
+
+            // Adiciona a nova linha na tabela de contatos
+            document.getElementById('tabela-contatos').appendChild(novaLinha);
+
+            // Limpa os campos do formulário
+            document.getElementById('form-contato').reset();
+        });
+
+        function salvarEmPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            
+            doc.text("Lista de Contatos", 20, 10);
+            
+            const tabela = document.querySelector("table");
+            const linhas = tabela.querySelectorAll("tr");
+            
+            linhas.forEach((linha, index) => {
+                const colunas = linha.querySelectorAll("td, th");
+                colunas.forEach((coluna, colIndex) => {
+                    doc.text(coluna.innerText, 20 + (colIndex * 40), 20 + (index * 10));
+                });
+            });
+
+            doc.save("contatos.pdf");
+        }
+
+        function resetarLista() {
+            // Limpa o conteúdo da tabela
+            const corpoTabela = document.getElementById('tabela-contatos');
+            corpoTabela.innerHTML = '';
+
+            // Limpa os campos do formulário
+            document.getElementById('form-contato').reset();
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
