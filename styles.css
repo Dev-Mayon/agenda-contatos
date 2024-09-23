@@ -1,10 +1,12 @@
-body {
+body { 
     font-family: 'Orbitron', sans-serif; /* Fonte futurista */
     margin: 20px;
+    text-align: center; /* Centraliza todo o conteúdo */
 }
 
 h1 {
     color: #333;
+    font-size: 2.5em; /* Aumenta o tamanho do título */
 }
 
 form {
@@ -24,6 +26,7 @@ button {
     border: none; /* Remove a borda */
     cursor: pointer; /* Cursor em forma de mão */
     transition: background-color 0.3s; /* Transição suave */
+    margin: 0 5px; /* Espaçamento entre os botões */
 }
 
 button:hover {
@@ -31,8 +34,10 @@ button:hover {
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
+    width: 75%; /* Diminuindo o comprimento da tabela para 75% da tela */
+    max-width: 800px; /* Define uma largura máxima */
+    margin: 20px auto; /* Centraliza a tabela horizontalmente */
+    border-collapse: collapse; /* Mantém as bordas colapsadas */
 }
 
 table, th, td {
@@ -51,3 +56,4 @@ tr:nth-child(even) {
 tr:hover {
     background-color: #ddd;
 }
+

@@ -8,7 +8,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet"> <!-- Fonte futurista -->
 </head>
 <body>
-    <h1>Agenda de Contatos</h1>
+    <h1>
+        <img src="410909.png" alt="Imagem de uma agenda" style="width: 50px; vertical-align: middle;"> <!-- Aumentei a largura -->
+        Agenda de Contatos
+    </h1>
+    
     <form id="form-contato">
         <input type="text" id="nome" placeholder="Nome" required>
         <input type="text" id="telefone" placeholder="Telefone" required>
@@ -25,8 +29,11 @@
             <!-- As linhas de contatos serão adicionadas aqui -->
         </tbody>
     </table>
-    <button onclick="salvarEmPDF()">Salvar em PDF</button>
-    <button onclick="resetarLista()">Resetar Lista</button>
+    <div>
+        <button onclick="salvarEmPDF()">Salvar em PDF</button>
+        <button onclick="resetarLista()">Resetar Lista</button>
+    </div>
+    
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script>
